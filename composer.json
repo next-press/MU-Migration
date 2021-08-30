@@ -13,7 +13,7 @@
         }
     ],
     "require": {
-        "alchemy/zippy": "^0.3.5"
+        "alchemy/zippy": "^1.0.0"
     },
     "autoload": {
     "files": [ "mu-migration.php" ]
