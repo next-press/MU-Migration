@@ -644,7 +644,11 @@ class ImportCommand extends MUMigrationBase {
 			return false;
 		}
 
-		$blog_id = insert_blog( $parsed_url['host'], $parsed_url['path'], $site_id );
+		$blog_id = wp_insert_blog(array(
+			'domain' => $parsed_url['host'],
+			'path' => $parsed_url['path'],
+			'network_id' => $site_id,
+		));
 
 		if ( ! $blog_id ) {
 			return false;
