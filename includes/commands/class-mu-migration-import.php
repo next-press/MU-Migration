@@ -249,7 +249,7 @@ class ImportCommand extends MUMigrationBase {
 	 * @param bool  $verbose
 	 */
 	public function tables( $args = array(), $assoc_args = array(), $verbose = true ) {
-		global $wpdb;
+		global $wpdb, $wu_site_exporter_site_id;
 
 		$this->process_args(
 			array(
@@ -275,6 +275,8 @@ class ImportCommand extends MUMigrationBase {
 		if ( empty( $this->assoc_args['blog_id'] ) ) {
 			WP_CLI::error( __( 'Please, provide a blog_id ', 'mu-migration' ) );
 		}
+
+		$wu_site_exporter_site_id = $this->assoc_args['blog_id'];
 
 		// Terminates the script if sed is not installed.
 		$this->check_for_sed_presence( true );
