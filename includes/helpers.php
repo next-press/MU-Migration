@@ -298,6 +298,7 @@ function extract( $filename, $dest_dir ) {
  * @return void
  */
 function zip( $zip_file, $files_to_zip ) {
+	$files_to_zip = apply_filters('wu_site_exporter_files_to_zip', $files_to_zip);
 	return Zippy::load()->create( $zip_file, $files_to_zip, true );
 }
 
